@@ -89,10 +89,15 @@ run test
 
 % --- Executes on button press in LoadImage.
 function LoadImage_Callback(hObject, eventdata, handles)
-[filename pathname] = uigetfile({'*.jpg';'*.bmp'},'File Selector');
-image = strcat(pathname, filename);
-% axes(handles.axes1);
-imshow(image)
+[filename, pathname] = uigetfile({'*.jpg;*.jpeg;*.png;*.bmp;*.JPG;*.JPGE;*.PNG;*.BMP',...
+    'Image (*.jpg,*.jpeg,*.png,*.bmp,*.JPG,*.JPGE,*.PNG,*.BMP)'},'Select a File');
+%only show try to show if there is something to show, otherwise don't do
+%anything
+if ischar(filename) %this will verify if the filename is a char variable
+    image = strcat(pathname, filename);
+    % axes(handles.axes1);
+    imshow(image)
+end
 % d = dialog ( 'windowstyle', 'normal', 'resize', 'on' );
 % uicontrol ( 'parent', d, 'style', 'pushbutton', 'units', 'normalized', 'position', [0.1 0.1 0.5 0.5], 'string', 'test', 'fontunits', 'normalized', 'fontsize', 0.1 );
 % set(handles.edit1,'string',filename);
