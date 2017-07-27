@@ -93,7 +93,8 @@ function LoadImage_Callback(hObject, eventdata, handles)
     'Image (*.jpg,*.jpeg,*.png,*.bmp,*.JPG,*.JPGE,*.PNG,*.BMP)'},'Select a File');
 %only show try to show if there is something to show, otherwise don't do
 %anything
-if ischar(filename) %this will verify if the filename is a char variable
+if ischar(filename) %this will verify if the filename is a char variable if 
+    %it is then it will show the picture
     image = strcat(pathname, filename);
     % axes(handles.axes1);
     imshow(image)
